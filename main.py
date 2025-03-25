@@ -10,6 +10,8 @@ def main():
 	x = SCREEN_WIDTH / 2
 	y = SCREEN_HEIGHT / 2
 	player = Player(x, y)
+	updateable = pygame.sprite.Group()
+	drawable = pygame.sprite.Group()
 
 	while True:
 		for event in pygame.event.get():
@@ -17,6 +19,7 @@ def main():
 				return
 		screen.fill((0, 0, 0))
 		player.draw(screen)
+		player.update(dt)
 		pygame.display.flip()
 		dt = clock.tick(60) / 1000
 	print("Starting Asteroids!")
